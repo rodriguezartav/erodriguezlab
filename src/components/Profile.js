@@ -5,7 +5,7 @@ export default function Profile(props) {
   React.useEffect(() => {
     var HOST =
       process.env.NODE_ENV === "production"
-        ? "ws://eapilab.herokuapp.com"
+        ? "wss://eapilab.herokuapp.com"
         : "ws://localhost:50001";
 
     var ws = new WebSocket(HOST);
