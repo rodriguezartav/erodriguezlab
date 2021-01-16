@@ -3,11 +3,12 @@ import Chart from "./Chart";
 
 export default function Profile(props) {
   React.useEffect(() => {
-    var HOST = window.location.origin
-      .replace(/^http/, "ws")
-      .replace("3000", "5001");
+    var HOST =
+      process.env.NODE_ENV === "production"
+        ? "ws://eapilab.herokuapp.com"
+        : "ws://localhost:50001";
+
     var ws = new WebSocket(HOST);
-    var el;
 
     console.log("aaa");
     ws.onmessage = function (event) {
